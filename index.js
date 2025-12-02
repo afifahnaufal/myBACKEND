@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 // 1. KONEKSI MONGODB
-mongoose.connect("mongodb://localhost:27017/gis_db")
+mongoose.connect("mongodb://localhost:27017/")
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.log(err));
 

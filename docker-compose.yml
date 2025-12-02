@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./      # folder tempat Dockerfile berada
+    container_name: gis-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/
+    depends_on:
+      - mongo
+    restart: always
+
+  mongo:
+    image: mongo:6
+    container_name: gis-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+volumes:
+  mongo_data:
